@@ -23,9 +23,7 @@ function subtrair(minuendo, subtraendo) {
     return minuendo - subtraendo;
   }
 }
-console.log(subtrair(9, 8)); //a saída vai ser normal, pois os dois valores foi atribuidos
-
-// console.log(subtrair(5)); //a saída vai dar erro, pois só um valor foi atribuido
+console.log(subtrair(9, 8));
 
 //   Exercício 4   //
 
@@ -44,6 +42,40 @@ function multiplicar(multiplicando, multiplicador) {
     return Math.floor(multiplicando * multiplicador);
   }
 }
-console.log(multiplicar(5, 5)); // aqui a função vai dar certo
-// console.log(multiplicar(5, "5"));  // aqui a função vai dar errado
-// console.log(multiplicar(5, ""));  // aqui a função vai dar errado
+
+//   Exercício 5   //
+
+function multiply(produto1, operacao, produto2) {
+  if (
+    produto1 === undefined ||
+    operacao === undefined ||
+    produto2 === undefined
+  ) {
+    return "Impossível realizar a operação";
+  }
+
+  if (typeof produto1 !== "number" || typeof produto2 !== "number") {
+    return "A Operação é efetuada somente com valores do tipo numero";
+  }
+
+  let resultado;
+  switch (operacao) {
+    case "+":
+      resultado = produto1 + produto2;
+      break;
+    case "-":
+      resultado = produto1 - produto2;
+      break;
+    case "x":
+      resultado = produto1 * produto2;
+      break;
+    case "÷":
+      resultado = produto1 / produto2;
+      break;
+    default:
+      return "Operador desconhecido. Use +, -, x ou ÷";
+  }
+
+  return resultado;
+}
+console.log(multiply(11, "x", 3));
